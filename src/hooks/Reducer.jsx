@@ -1,12 +1,28 @@
 import React from "react";
+import { useReducer } from "react";
 
-const Reducer = () => {
+function reducer(state, action) {
+  if (action.type === "incremented_age") {
+    return {
+      age: state.age + 1,
+    };
+  }
+  throw Error("Unknown action.");
+}
+
+const Counter = () => {
+  const [state, dispatch] = useReducer(reducer, { age: 42 });
   return (
     <>
-      <button>Increment age</button>
-      <p>Hello! your are.</p>
+      <button
+        onClick={() => {
+          dispatch({ type: "incremented_age" });
+        }}>
+        Increment age
+      </button>
+      <p>Hello! your are {state.age}.</p>
     </>
   );
 };
 
-export default Reducer;
+export default Counter;
