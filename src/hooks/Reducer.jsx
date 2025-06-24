@@ -7,7 +7,7 @@ function Reducer() {
   const [color, setColor] = useState(false);
   return (
     <>
-      <main>
+      <main className="reduce-main">
         <input
           type="text"
           value={userInput}
@@ -16,7 +16,7 @@ function Reducer() {
         <br />
         <br />
         <p>{count}</p>
-        <section>
+        <section className="reduce-section">
           <button>-</button>
           <button>+</button>
           <button>Color</button>
