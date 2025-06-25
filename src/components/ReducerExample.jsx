@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import "./Reducer.css";
 
-function Reducer() {
+function ReducerExample() {
   const [count, setCount] = useState(0);
   const [userInput, setUserInput] = useState("");
   const [color, setColor] = useState(false);
@@ -17,9 +18,9 @@ function Reducer() {
         <br />
         <p>{count}</p>
         <section className="reduce-section">
-          <button>-</button>
-          <button>+</button>
-          <button>Color</button>
+          <button onClick={() => setCount(count - 1)}>-</button>
+          <button onClick={() => setCount(count + 1)}>+</button>
+          <button onClick={() => setColor(!color)}>Color</button>
         </section>
         <br />
         <br />
@@ -29,4 +30,4 @@ function Reducer() {
   );
 }
 
-export default Reducer;
+export default ReducerExample;

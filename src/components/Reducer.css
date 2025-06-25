@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: boder-box;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.reduce-main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+}
+
+input {
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 0, 5em;
+  margin-bottom: 1 rem;
+
+}
