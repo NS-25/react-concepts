@@ -63,10 +63,10 @@ function ReducerExample() {
         />
         <br />
         <br />
-        <p>{count}</p>
+        <p>{state.count}</p>
         <section className="reduce-section">
-          <button onClick={() => setCount(count - 1)}>-</button>
-          <button onClick={() => setCount(count + 1)}>+</button>
+          <button onClick={() => dispatch({ type: "decrement" })}>-</button>
+          <button onClick={() => dispatch({ type: "increment" })}>+</button>
           <button onClick={() => setColor(!color)}>Color</button>
         </section>
         <br />
