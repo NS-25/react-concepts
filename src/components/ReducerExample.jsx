@@ -37,22 +37,25 @@ import "./Reducer.css";
 const reducer = (state, action) => {
   switch (action.type) {
     case "increment":
-      return {
-        count: state.count + 1,
-      };
+      return { ...state, count: state.count + 1 };
     case "decrement":
-      return {
-        count: state.count - 1,
-      };
+      return { ...state, count: state.count - 1 };
+    case "newUserInput":
+      return { ...state, userInput: action.payload };
+    case "tgColor":
+      return { ...state, color: !state.color };
     default:
       throw new error();
   }
 };
 
 function ReducerExample() {
-  const [state, dispatch] = useReducer(reducer, { count: 0 });
-  const [userInput, setUserInput] = useState("");
-  const [color, setColor] = useState(false);
+  const [state, dispatch] = useReducer(reducer, {
+    count: 0,
+    useInput: "",
+    color: false,
+  });
+
   return (
     <>
       <main className="reduce-main">
@@ -67,7 +70,7 @@ function ReducerExample() {
         <section className="reduce-section">
           <button onClick={() => dispatch({ type: "decrement" })}>-</button>
           <button onClick={() => dispatch({ type: "increment" })}>+</button>
-          <button onClick={() => setColor(!color)}>Color</button>
+          <button onClick={() => setColor((prev) => !prev)}>Color</button>
         </section>
         <br />
         <br />
