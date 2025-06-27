@@ -49,6 +49,13 @@ const reducer = (state, action) => {
   }
 };
 
+const ACTION = {
+  INCREMENT: "increment",
+  DECREMENT: "decrement",
+  NEW_USER_INPUT: "newUserInput",
+  TG_COLOR: "tgColor",
+};
+
 function ReducerExample() {
   const [state, dispatch] = useReducer(reducer, {
     count: 0,
@@ -65,16 +72,22 @@ function ReducerExample() {
           type="text"
           value={state.userInput}
           onChange={(e) =>
-            dispatch({ type: "newUserInput", payload: e.target.value })
+            dispatch({ type: ACTION.NEW_USER_INPUT, payload: e.target.value })
           }
         />
         <br />
         <br />
         <p>{state.count}</p>
         <section className="reduce-section">
-          <button onClick={() => dispatch({ type: "decrement" })}>-</button>
-          <button onClick={() => dispatch({ type: "increment" })}>+</button>
-          <button onClick={() => dispatch({ type: "tgColor" })}>Color</button>
+          <button onClick={() => dispatch({ type: ACTION.DECREMENT })}>
+            -
+          </button>
+          <button onClick={() => dispatch({ type: ACTION.INCREMENT })}>
+            +
+          </button>
+          <button onClick={() => dispatch({ type: ACTION.TG_COLOR })}>
+            Color
+          </button>
         </section>
         <br />
         <br />
