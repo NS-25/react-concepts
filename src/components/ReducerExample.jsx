@@ -34,7 +34,20 @@ import "./Reducer.css";
 
 // create a reducer function.
 
-const reducer = (state, action) => {};
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "increment":
+      return {
+        count: state.count + 1,
+      };
+    case "decrement":
+      return {
+        count: state.count - 1,
+      };
+    default:
+      throw new error();
+  }
+};
 
 function ReducerExample() {
   const [state, dispatch] = useReducer(reducer, { count: 0 });
