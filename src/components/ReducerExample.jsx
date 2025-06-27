@@ -58,11 +58,15 @@ function ReducerExample() {
 
   return (
     <>
-      <main className="reduce-main">
+      <main
+        className="reduce-main"
+        style={{ color: state.color ? "#fff" : "#fff952" }}>
         <input
           type="text"
-          value={userInput}
-          onChange={(e) => setUserInput(e.target.value)}
+          value={state.userInput}
+          onChange={(e) =>
+            dispatch({ type: "newUserInput", payload: e.target.value })
+          }
         />
         <br />
         <br />
@@ -70,11 +74,11 @@ function ReducerExample() {
         <section className="reduce-section">
           <button onClick={() => dispatch({ type: "decrement" })}>-</button>
           <button onClick={() => dispatch({ type: "increment" })}>+</button>
-          <button onClick={() => setColor((prev) => !prev)}>Color</button>
+          <button onClick={() => dispatch({ type: "tgColor" })}>Color</button>
         </section>
         <br />
         <br />
-        <p>{userInput}</p>
+        <p>{state.userInput}</p>
       </main>
     </>
   );
